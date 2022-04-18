@@ -10,22 +10,22 @@ As the application built in spring boot framework. please run the following comm
 # Sample Working EndPoinds as stated below.
 
 # Customers
-GET:/customers
-POST:/customers
-GET:/customers/{customerId}
-PUT:/customers/{customerId}
+GET:/customers - 
+POST:/customers - 
+GET:/customers/{customerId} - 
+PUT:/customers/{customerId} -
 
 # Vehicles
-GET:/vehicles
-POST:/vehicles
-GET:/vehicles/{vehicleId}
-PUT:/vehicles/{vehicleId}
+GET:/vehicles - 
+POST:/vehicles - 
+GET:/vehicles/{vehicleId} -
+PUT:/vehicles/{vehicleId} -
 
 # LeaseContracts
-GET:/leaseContracts
-POST:/leaseContracts
-GET:/leaseContracts/{leaseContractId}
-PUT:/leaseContracts/{leaseContractId}
+GET:/leaseContracts -
+POST:/leaseContracts -
+GET:/leaseContracts/{leaseContractId} -
+PUT:/leaseContracts/{leaseContractId} -
   
 # Below are the used framework and tools.
 
