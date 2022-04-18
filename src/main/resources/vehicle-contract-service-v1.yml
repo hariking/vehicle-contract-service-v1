@@ -1,0 +1,394 @@
+openapi: 3.0.1
+info:
+  title: Vehicle-Contract-Service-V1
+  description: Vehicle-Contract-Service-V1.
+  version: 1.0.0
+servers:
+ - url: http://localhost:8080/vehicle/contract/service/v1
+paths:
+  /customers:
+    get:
+      tags:
+        - "Customers"
+      summary: Get Customers
+      operationId: getCustomers
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      tags:
+        - "Customers"
+      summary: Add a Customer
+      operationId: addCustomer
+      requestBody:
+        description: New Customer Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        200:
+          description: Customer Added
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Customer'
+      
+  /customers/{id}:
+    get:
+      tags:
+        - "Customers"
+      summary: "Retrieves Customer by ID"
+      operationId: "getCustomerById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves Customer by Customer id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Retrieves Customer details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Customer'
+                
+    delete:
+      tags:
+        - "Customers"
+      summary: "Delete Customer by ID"
+      operationId: "deleteCustomerById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "deletes Customer by Customer id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "deletes Customer details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Customer'
+                
+    put:
+      tags:
+        - "Customers"
+      summary: "Update Customer by ID"
+      operationId: "updateCustomerDeatilsById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves Customer by Customer id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: update Customer Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        200:
+          description: "Retrieves Customer details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Customer'
+
+  /vehicles:
+    get:
+      tags:
+        - "Vehicles"
+      summary: Get Vehicles
+      operationId: getVehicles
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle' 
+
+    post:
+      tags:
+        - "Vehicles"
+      summary: Add a Vehicle
+      operationId: addVehicle
+      requestBody:
+        description: New Vehicle Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+        required: true
+      responses:
+        200:
+          description: Vehicle Added
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Vehicle' 
+
+  /vehicles/{id}:
+    get:
+      tags:
+        - "Vehicles"
+      summary: "Retrieves Vehicle by ID"
+      operationId: "getVehicleById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves Vehicle by Vehicle id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Retrieves Vehicle details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Vehicle'
+
+    put:
+      tags:
+        - "Vehicles"
+      summary: "Update Vehicle by ID"
+      operationId: "updateVehicleDeatilsById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves Vehicle by Vehicle id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: Update Vehicle Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+        required: true
+      responses:
+        200:
+          description: "Retrieves Vehicle details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Vehicle'
+
+    delete:
+      tags:
+        - "Vehicles"
+      summary: "Delete Vehicle by ID"
+      operationId: "deleteVehicleById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "deletes Vehicle by Vehicle id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "deletes Vehicle details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Vehicle'
+                
+  /leaseContracts:
+    get:
+      tags:
+        - "LeaseContracts"
+      summary: Get LeaseContracts
+      operationId: getLeaseContracts
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LeaseContract' 
+
+    post:
+      tags:
+        - "LeaseContracts"
+      summary: Add a LeaseContract
+      operationId: addLeaseContract
+      requestBody:
+        description: New LeaseContract Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseContract'
+        required: true
+      responses:
+        200:
+          description: LeaseContract Added
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/LeaseContract'
+
+  /leaseContracts/{id}:
+    get:
+      tags:
+        - "LeaseContracts"
+      summary: "Retrieves LeaseContract by ID"
+      operationId: "getLeaseContractById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves LeaseContract by LeaseContract id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Retrieves LeaseContract details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/LeaseContract'
+
+    put:
+      tags:
+        - "LeaseContracts"
+      summary: "Update LeaseContract by ID"
+      operationId: "updateLeaseContractById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves LeaseContract by LeaseContract id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: Update LeaseContract Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseContract'
+        required: true
+      responses:
+        200:
+          description: "Retrieves LeaseContract details by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/LeaseContract'
+                
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+          example: Brandon
+        lastName:
+          type: string
+          example: Sanderson
+        birthDate:
+          type: string
+          example: 25-10-2010
+          description: date of birth value should in the specified format (dd-MM-yyyy)
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        brand:
+          type: string
+          example: Brandon
+        model:
+          type: string
+          example: Sanderson
+        modelYear:
+          type: string
+          example: 25-10-2010
+          description: date of birth value should in the specified format (dd-MM-yyyy)
+        identificationNumber:
+          type: string
+          example: ICT4-1234
+        price:
+          type: "object"
+          $ref: '#/components/schemas/Amount'
+
+    LeaseContract:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        contractNumber:
+          type: string
+          example: 1234567
+        monthlyRent:
+          type: "object"
+          $ref: '#/components/schemas/Amount'
+        customer:
+          type: "object"
+          $ref: '#/components/schemas/Customer'
+        vehicle:
+          type: "object"
+          $ref: '#/components/schemas/Vehicle'
+          
+    Amount:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: string
+          example: 1234567
+        noOfDecimals:
+          type: integer
+          format: int32
+          example: 2
+        currency:
+          type: string
+          example: EUR, INR, ISD          
